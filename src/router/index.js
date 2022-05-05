@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home/index.vue";
+import Home from "../views/home/index.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,12 +12,17 @@ const router = createRouter({
 				{
 					path: "/",
 					name: "marine",
-					component: () => import("../views/Home/Marine.vue"),
+					component: () => import("../views/home/Marine.vue"),
 				},
 				{
 					path: "/fire",
 					name: "fire",
-					component: () => import("../views/Home/Fire.vue"),
+					component: () => import("../views/home/Fire.vue"),
+				},
+				{
+					path: "/car",
+					name: "car",
+					component: () => import("../views/home/Car.vue"),
 				},
 			],
 		},

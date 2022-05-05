@@ -1,35 +1,36 @@
 <script setup>
-import { computed, ref, watch } from 'vue';
-import { shipOptions, truckOptions } from '../marine/marineRates'
+import { ref, watch } from 'vue';
+import BaseSelect from '../forms/BaseSelect.vue';
+import { shipOptions, truckOptions } from "./marineRates";
+import BaseInput from "../forms/BaseInput.vue";
 
-const rate = ref(0.30)
-const marineRates = computed(() => props.viaCondition == 'ship' ? shipOptions : truckOptions)
+const via = ref('ship')
+const rateName = ref('')
+const childRate = ref('')
+const emit = defineEmits(['changerate'])
 
-const rateChange = (val) => {
-	marineRates.value.filter(rat => {
-		rat.slug === val ? rate.value = rat.rate : null
-	})
-}
-
-watch(marineRates, val => rate.value = val[0].rate)
-
-const props = defineProps({
-	viaCondition: {
-		type: String,
-		default: ''
-	}
+watch(rateName, () => {
+    const arr = [...shipOptions, ...truckOptions]
+    arr.filter(op => op.slug === rateName.value ? childRate.value = op.rate : null)
+    emit('changerate', { rate: childRate.value, via: via.value })
 })
-
-
 </script>
 <template>
-	<div>
-		<select @change="[rateChange($event.target.selectedOptions[0].value), $emit('preRate', rate)]">
-			<option disabled>Please select one</option>
-			<option v-for="(marineRate, index) in marineRates" :value="marineRate.slug" :key="index">{{ marineRate.name }}
-			</option>
-		</select>
-		<input type="text" @input="$emit('preRate', rate)" v-model="rate" />
-	</div>
+    <div>
+        <!-- via -->
+        <div>
+            <label for="ship">Via Ship</label>
+            <input type="radio" value="ship" v-model="via">
+            <label for="truck">Via Truck</label>
+            <input type="radio" value="truck" v-model="via">
+        </div>
+        <!-- Rate -->
+        <div>
+            <BaseSelect v-model="rateName" :options="via == 'ship' ? shipOptions : truckOptions" />
+            <BaseInput v-model="childRate" type="text" @input="emit('changerate', childRate)" />
+        </div>
+        <div>
+        </div>
+    </div>
 </template>
 

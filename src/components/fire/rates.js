@@ -1,3 +1,9 @@
+const classes = [
+    {slug: 'class1', name: 'Class I'},
+    {slug: 'class2', name: 'Class II'},
+    {slug: 'class3', name: 'Class III'}
+]
+
 const class1 = [
     {slug: 'shopclass1', name: 'Shop', rate: 0.15},
     {slug: 'godownclass1', name: 'Godown', rate: 0.11},
@@ -22,4 +28,4 @@ const class3 = [
     {slug: 'godownclass3', name: 'Godown', rate: 0.21}
 ]
 
-export {class1, class2, class3}
+export {class1, class2, class3, classes}

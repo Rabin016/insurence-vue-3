@@ -28,7 +28,10 @@ const calculate = () => {
   );
   let netPremium = 0;
   allConditions.value.forEach((structure) => {
-    const structurePrice = rateCalculate(amount, structure.itemAmount);
+    let structurePrice = structure.itemAmount;
+    if (structure.itemAmount <= 100) {
+      structurePrice = rateCalculate(amount, structure.itemAmount);
+    }
     netPremium = netPremium + rateCalculate(structurePrice, structure.rate);
   });
   rsd.value && (netPremium = netPremium + rateCalculate(amount, 0.13));

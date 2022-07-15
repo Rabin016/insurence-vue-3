@@ -13,7 +13,7 @@ import BaseCheckbox from "../../components/forms/BaseCheckbox.vue";
 
 // All States
 const limitAmount = ref("");
-const bankPercent = ref("");
+const bankPercent = ref(10);
 const currencyRate = ref("");
 const rate = ref(null);
 const war = ref(true);

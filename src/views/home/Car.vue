@@ -1,8 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 <template>
-	<div>
-		car
-	</div>
+  <div class="font-thin">car</div>
 </template>

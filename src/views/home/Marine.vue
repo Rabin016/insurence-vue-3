@@ -8,7 +8,6 @@ import {
   bankCalculate,
   rateCalculate,
 } from "../../components/calculation/calculate";
-import PremiumStatus from "../../components/PremiumStatus.vue";
 import BaseCheckbox from "../../components/forms/BaseCheckbox.vue";
 
 // All States
@@ -55,16 +54,18 @@ const submitInfo = () => {
   } else {
     premium.value.stamp = 50;
   }
+
   // Total
   premium.value.total =
     premium.value.net + premium.value.vat + premium.value.stamp;
 };
+const emit = defineEmits(["premiumEmit"]);
+emit("premiumEmit", premium.value);
 </script>
 
 <template>
   <div>
-    <p>Marine</p>
-    <form @submit.prevent="submitInfo">
+    <form class="body-layout" @submit.prevent="submitInfo">
       <div>
         <BaseInput v-model="limitAmount" label="Limit Amount" type="number" />
         <BaseInput v-model="bankPercent" label="Bank Percent" type="number" />
@@ -79,7 +80,5 @@ const submitInfo = () => {
       </div>
       <Button>Submit</Button>
     </form>
-
-    <PremiumStatus :premiumBill="premium" />
   </div>
 </template>

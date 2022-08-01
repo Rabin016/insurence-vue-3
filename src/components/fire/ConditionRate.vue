@@ -4,6 +4,7 @@ import BaseSelect from "../forms/BaseSelect.vue";
 import { classes, class1, class2, class3 } from "../fire/rates";
 import BaseInput from "../forms/BaseInput.vue";
 import { v4 as uuidv4 } from "uuid";
+import Button from "../forms/Button.vue";
 
 const conditionData = reactive([
   {
@@ -43,7 +44,7 @@ const addNewEntries = () => {
 <template>
   <div>
     <h3>Add Occupation of premises:</h3>
-    <button @click="addNewEntries">add</button>
+    <Button @click="addNewEntries">add</Button>
     <div v-for="(data, index) in conditionData" :key="index">
       <div>
         <h3>Constructure Class</h3>

@@ -8,7 +8,6 @@ import {
   bankCalculate,
   rateCalculate,
 } from "../../components/calculation/calculate";
-import PremiumStatus from "../../components/PremiumStatus.vue";
 
 const limitAmount = ref("");
 const bankPercent = ref(10);
@@ -31,6 +30,8 @@ const calculate = () => {
     let structurePrice = structure.itemAmount;
     if (structure.itemAmount <= 100) {
       structurePrice = rateCalculate(amount, structure.itemAmount);
+    } else if (structure.itemAmount >= 100 && bankPercent.value !== 0) {
+      structurePrice = bankCalculate(structure.itemAmount, bankPercent.value);
     }
     netPremium = netPremium + rateCalculate(structurePrice, structure.rate);
   });
@@ -40,16 +41,25 @@ const calculate = () => {
   premium.value.net = netPremium;
   premium.value.vat = vat;
   premium.value.total = total;
-  console.log(premium.value);
 };
+
+const emit = defineEmits(["premiumEmit"]);
+emit("premiumEmit", premium.value);
 </script>
 
 <template>
   <div>
-    <p>Fire</p>
     <form @submit.prevent="calculate">
-      <BaseInput v-model="limitAmount" label="Limit Amount" type="number" />
-      <BaseInput v-model="bankPercent" label="Bank Percent" type="number" />
+      <BaseInput
+        v-model.number="limitAmount"
+        label="Limit Amount"
+        type="number"
+      />
+      <BaseInput
+        v-model.number="bankPercent"
+        label="Bank Percent"
+        type="number"
+      />
       <ConditionRate @changeConditionData="cngConditionData" />
 
       <div>
@@ -57,6 +67,5 @@ const calculate = () => {
       </div>
       <Button>submit</Button>
     </form>
-    <PremiumStatus :premiumBill="premium" />
   </div>
 </template>

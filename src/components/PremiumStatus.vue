@@ -41,27 +41,28 @@ const calculate = () => {
 };
 </script>
 <template>
-  <div>
-    <h1>Premium</h1>
-  </div>
-  <div>
-    <p>Net: {{ premiumBill.net }}</p>
-    <p>Vat: {{ premiumBill.vat }}</p>
-    <p v-if="premiumBill.stamp">Stamp: {{ premiumBill.stamp }}</p>
-    <p>Total: {{ premiumBill.total }}</p>
-  </div>
-
-  <!-- Discount -->
-  <div v-if="premiumBill.net">
-    <BaseInput label="Discount" v-model="discount" type="number" />
-    <Button @click="calculate">Discount Calculate</Button>
+  <div class="bg-gray-200 rounded-lg mt-2 p-2">
     <div>
-      <p v-if="afterDiscount.commission">
-        Discount Amount <span>{{ afterDiscount.commission }}</span>
-      </p>
-      <p v-if="afterDiscount.cashAmount">
-        Cash Payment <span>{{ afterDiscount.cashAmount }}</span>
-      </p>
+      <h1>Premium</h1>
+    </div>
+    <div>
+      <p>Net: {{ premiumBill.net }}</p>
+      <p>Vat: {{ premiumBill.vat }}</p>
+      <p v-if="premiumBill.stamp">Stamp: {{ premiumBill.stamp }}</p>
+      <p>Total: {{ premiumBill.total }}</p>
+    </div>
+    <!-- Discount -->
+    <div v-if="premiumBill.net">
+      <BaseInput label="Discount" v-model="discount" type="number" />
+      <Button @click="calculate">Discount Calculate</Button>
+      <div>
+        <p v-if="afterDiscount.commission">
+          Discount Amount <span>{{ afterDiscount.commission }}</span>
+        </p>
+        <p v-if="afterDiscount.cashAmount">
+          Cash Payment <span>{{ afterDiscount.cashAmount }}</span>
+        </p>
+      </div>
     </div>
   </div>
 </template>

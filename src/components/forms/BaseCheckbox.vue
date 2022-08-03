@@ -11,13 +11,13 @@ const { label, modelValue } = defineProps({
 });
 </script>
 <template>
-  <div class="mb-2">
-    <label v-if="label">{{ label }}</label>
+  <div class="pb-2">
     <input
       :placeholder="label"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.checked)"
       type="checkbox"
     />
+    <label class="pl-1" v-if="label">{{ label }}</label>
   </div>
 </template>

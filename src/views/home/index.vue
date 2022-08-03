@@ -18,7 +18,7 @@ const premiumEmitInfo = (data) => (premium.value = data);
           ? 'text-green-700'
           : null
       "
-      class="text-center font-bold text-xl"
+      class="text-center text-xl"
     >
       {{ $route.name }}
     </h3>

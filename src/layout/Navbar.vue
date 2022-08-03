@@ -7,30 +7,29 @@
       </router-link>
     </div>
     <!-- Navigation Link -->
-    <nav class="flex justify-center">
+    <nav class="flex justify-center text-gray-600">
       <router-link
         class="px-2 hover:underline hover:text-blue-600 font-semibold"
         exact-active-class="font-extrabold text-blue-600 underline"
-        ex
         to="/"
         >Marine</router-link
       >
       <router-link
         class="px-2 hover:underline hover:text-blue-600 font-semibold"
         to="/fire"
-        active-class="font-bold text-blue-600 underline"
+        active-class="font-extrabold text-blue-600 underline"
         >Fire</router-link
       >
       <router-link
         class="px-2 hover:underline hover:text-blue-600 font-semibold"
         to="/car"
-        active-class="font-bold text-blue-600 underline"
+        active-class="font-extrabold text-blue-600 underline"
         >Car</router-link
       >
       <router-link
         class="px-2 hover:underline hover:text-blue-600 font-semibold"
         to="/about"
-        active-class="font-bold text-blue-600 underline"
+        active-class="font-extrabold text-blue-600 underline"
         >About</router-link
       >
     </nav>

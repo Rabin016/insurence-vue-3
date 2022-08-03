@@ -65,7 +65,7 @@ emit("premiumEmit", premium.value);
 
 <template>
   <div>
-    <form class="body-layout" @submit.prevent="submitInfo">
+    <form class="body-layout font-bold" @submit.prevent="submitInfo">
       <div>
         <BaseInput v-model="limitAmount" label="Limit Amount" type="number" />
         <BaseInput v-model="bankPercent" label="Bank Percent" type="number" />

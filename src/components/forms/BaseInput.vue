@@ -11,7 +11,7 @@ const { label, modelValue } = defineProps({
 });
 </script>
 <template>
-  <div>
+  <div class="pb-1">
     <label v-if="label">{{ label }}</label>
     <input
       class="w-full p-2 rounded-lg bg-gray-300 focus:bg-gray-50 mb-2"

@@ -48,7 +48,7 @@ emit("premiumEmit", premium.value);
 </script>
 
 <template>
-  <div>
+  <div class="p-2">
     <form @submit.prevent="calculate">
       <BaseInput
         v-model.number="limitAmount"

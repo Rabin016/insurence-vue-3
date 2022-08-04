@@ -21,6 +21,7 @@ const emit = defineEmits(["changeConditionData"]);
 watch(conditionData, () => emit("changeConditionData", conditionData));
 
 const changeRate = (data) => {
+  console.log(data);
   [...class1, ...class2, ...class3].forEach((r) => {
     if (r.slug == data.selectedStructure) {
       conditionData.forEach((b) => {
@@ -62,7 +63,7 @@ const addNewEntries = () => {
               ? class2
               : class3
           "
-          @click="changeRate(data)"
+          @change="changeRate(data)"
         />
       </div>
 

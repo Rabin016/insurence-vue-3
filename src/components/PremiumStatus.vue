@@ -25,6 +25,8 @@ const { premiumBill } = defineProps({
   },
 });
 
+const round = (data) => Math.round(data);
+
 const discount = ref(40);
 const afterDiscount = ref({
   cashAmount: 0,
@@ -46,10 +48,10 @@ const calculate = () => {
       <h1>Premium</h1>
     </div>
     <div>
-      <p>Net: {{ premiumBill.net }}</p>
-      <p>Vat: {{ premiumBill.vat }}</p>
-      <p v-if="premiumBill.stamp">Stamp: {{ premiumBill.stamp }}</p>
-      <p>Total: {{ premiumBill.total }}</p>
+      <p>Net: {{ round(premiumBill.net) }}</p>
+      <p>Vat: {{ round(premiumBill.vat) }}</p>
+      <p v-if="premiumBill.stamp">Stamp: {{ round(premiumBill.stamp) }}</p>
+      <p>Total: {{ round(premiumBill.total) }}</p>
     </div>
     <!-- Discount -->
     <div v-if="premiumBill.net">
@@ -57,10 +59,10 @@ const calculate = () => {
       <Button @click="calculate">Discount Calculate</Button>
       <div>
         <p v-if="afterDiscount.commission">
-          Discount Amount <span>{{ afterDiscount.commission }}</span>
+          Discount Amount <span>{{ round(afterDiscount.commission) }}</span>
         </p>
         <p v-if="afterDiscount.cashAmount">
-          Cash Payment <span>{{ afterDiscount.cashAmount }}</span>
+          Cash Payment <span>{{ round(afterDiscount.cashAmount) }}</span>
         </p>
       </div>
     </div>

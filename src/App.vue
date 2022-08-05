@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from "vue-router";
 import Navbar from "./layout/Navbar.vue";
+import MyLogo from "./layout/MyLogo.vue";
 </script>
 
 <template>
@@ -13,5 +14,6 @@ import Navbar from "./layout/Navbar.vue";
     <main>
       <RouterView />
     </main>
+    <MyLogo />
   </div>
 </template>

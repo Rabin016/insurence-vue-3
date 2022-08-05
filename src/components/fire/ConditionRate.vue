@@ -44,8 +44,10 @@ const addNewEntries = () => {
 </script>
 <template>
   <div>
-    <h3>Add Occupation of premises:</h3>
-    <Button @click="addNewEntries">add</Button>
+    <div class="flex">
+      <h3 class="mr-2">Add Occupation of premises:</h3>
+      <Button @click="addNewEntries">add</Button>
+    </div>
     <div v-for="(data, index) in conditionData" :key="index">
       <div>
         <h3>Constructure Class</h3>

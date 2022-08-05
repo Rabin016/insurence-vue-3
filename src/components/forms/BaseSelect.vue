@@ -12,7 +12,7 @@ const { modelValue, options } = defineProps({
 <template>
   <div class="pb-2">
     <select
-      class="bg-gray-300 rounded-lg p-2 focus:bg-gray-50 mb-2"
+      class="bg-gray-200 rounded-lg p-2 focus:bg-gray-50 mb-2"
       :value="modelValue"
       v-bind="$attrs"
       @change="

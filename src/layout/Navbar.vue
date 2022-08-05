@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <div
-    class="bg-gray-200 rounded-b-xl p-2 text-center font-bold mb-2 md:max-w-3xl mx-auto"
+    class="bg-gray-100 rounded-b-xl p-2 text-center font-bold mb-2 md:max-w-3xl mx-auto"
   >
     <div>
       <router-link to="/" class="font-extrabold text-3xl">

@@ -64,19 +64,27 @@ emit("premiumEmit", premium.value);
 </script>
 
 <template>
-  <div>
-    <form class="body-layout font-bold" @submit.prevent="submitInfo">
+  <div class="p-2">
+    <form class="font-bold" @submit.prevent="submitInfo">
+      <BaseInput
+        placeholder="e.g: 230008"
+        v-model="limitAmount"
+        label="Limit Amount"
+        type="number"
+      />
+      <BaseInput v-model="bankPercent" label="Bank Percent" type="number" />
+      <BaseInput
+        v-model="currencyRate"
+        label="Currency Rate"
+        placeholder="e.g: 86.7"
+        type="text"
+      />
+
       <div>
-        <BaseInput v-model="limitAmount" label="Limit Amount" type="number" />
-        <BaseInput v-model="bankPercent" label="Bank Percent" type="number" />
-        <BaseInput v-model="currencyRate" label="Currency Rate" type="text" />
+        <!-- Condition -->
+        <ConditionRate @changerate="ratefn" />
 
-        <div>
-          <!-- Condition -->
-          <ConditionRate @changerate="ratefn" />
-
-          <BaseCheckbox v-model="war" label="war" />
-        </div>
+        <BaseCheckbox v-model="war" label="war" />
       </div>
       <Button>Submit</Button>
     </form>

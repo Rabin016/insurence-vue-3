@@ -54,18 +54,20 @@ emit("premiumEmit", premium.value);
         v-model.number="limitAmount"
         label="Limit Amount"
         type="number"
+        placeholder="e.g: 2000000"
       />
       <BaseInput
         v-model.number="bankPercent"
         label="Bank Percent"
         type="number"
+        placeholder="e.g: 10 or 20"
       />
       <ConditionRate @changeConditionData="cngConditionData" />
 
       <div>
         <BaseCheckbox label="RSD" v-model="rsd" />
       </div>
-      <Button>submit</Button>
+      <Button>Submit</Button>
     </form>
   </div>
 </template>

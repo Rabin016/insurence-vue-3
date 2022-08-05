@@ -31,7 +31,7 @@ const policyIcons = ref([
 const premiumEmitInfo = (data) => (premium.value = data);
 </script>
 <template>
-  <div class="bg-gray-200 md:max-w-3xl mx-auto rounded-lg p-2 flex flex-col">
+  <div class="bg-gray-100 md:max-w-3xl mx-auto rounded-lg p-2 flex flex-col">
     <div v-for="policyIcon in policyIcons" :key="policyIcon.slug">
       <h3
         class="flex items-center justify-center text-xl"

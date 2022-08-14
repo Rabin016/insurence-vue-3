@@ -19,8 +19,12 @@ const { modelValue, options } = defineProps({
         $emit('update:modelValue', $event.target.selectedOptions[0].value)
       "
     >
-      <option disabled>Select one</option>
-      <option v-for="(option, key) in options" :key="key" :value="option.slug">
+      <option selected disabled>Select one</option>
+      <option
+        v-for="(option, index) in options"
+        :key="index"
+        :value="option.slug"
+      >
         {{ option.name }}
       </option>
     </select>

@@ -71,7 +71,11 @@ const addNewEntries = () => {
 
       <div>
         <BaseInput label="Rate" v-model="data.rate" />
-        <BaseInput v-model="data.itemAmount" type="number" />
+        <BaseInput
+          label="Item Amount"
+          v-model="data.itemAmount"
+          type="number"
+        />
       </div>
     </div>
   </div>

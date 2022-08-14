@@ -43,7 +43,7 @@ const calculate = () => {
 };
 </script>
 <template>
-  <div class="bg-gray-200 rounded-lg mt-2 p-2">
+  <div class="rounded-lg mt-2 p-2">
     <div>
       <h1>Premium</h1>
     </div>

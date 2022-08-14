@@ -53,5 +53,9 @@ const premiumEmitInfo = (data) => (premium.value = data);
     <RouterView @premiumEmit="premiumEmitInfo" />
   </div>
 
-  <PremiumStatus v-if="premium.net" :premiumBill="premium" />
+  <PremiumStatus
+    class="bg-gray-100 md:max-w-3xl mx-auto rounded-lg p-2 flex flex-col"
+    v-if="premium.net"
+    :premiumBill="premium"
+  />
 </template>

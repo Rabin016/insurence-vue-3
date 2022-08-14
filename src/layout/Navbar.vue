@@ -7,7 +7,7 @@
       <router-link to="/" class="font-extrabold text-3xl">
         Insurence <span class="text-blue-600">Rate</span>
       </router-link>
-      <p>Version 1.00 Beta</p>
+      <p>Version 1.00 Stable Release</p>
     </div>
     <!-- Navigation Link -->
     <nav class="flex justify-center text-gray-600">

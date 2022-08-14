@@ -48,10 +48,18 @@ const calculate = () => {
       <h1>Premium</h1>
     </div>
     <div>
-      <p>Net: {{ round(premiumBill.net) }}</p>
-      <p>Vat: {{ round(premiumBill.vat) }}</p>
-      <p v-if="premiumBill.stamp">Stamp: {{ round(premiumBill.stamp) }}</p>
-      <p>Total: {{ round(premiumBill.total) }}</p>
+      <p>
+        Net: <span class="text-red-600">{{ round(premiumBill.net) }}</span>
+      </p>
+      <p>
+        Vat: <span class="text-red-600">{{ round(premiumBill.vat) }}</span>
+      </p>
+      <p v-if="premiumBill.stamp">
+        Stamp: <span class="text-red-600">{{ round(premiumBill.stamp) }}</span>
+      </p>
+      <p>
+        Total: <span class="text-red-600">{{ round(premiumBill.total) }}</span>
+      </p>
     </div>
     <!-- Discount -->
     <div v-if="premiumBill.net">
@@ -59,10 +67,16 @@ const calculate = () => {
       <Button @click="calculate">Discount Calculate</Button>
       <div>
         <p v-if="afterDiscount.commission">
-          Discount Amount <span>{{ round(afterDiscount.commission) }}</span>
+          Discount Amount
+          <span class="text-red-600">{{
+            round(afterDiscount.commission)
+          }}</span>
         </p>
         <p v-if="afterDiscount.cashAmount">
-          Cash Payment <span>{{ round(afterDiscount.cashAmount) }}</span>
+          Cash Payment
+          <span class="text-red-600">{{
+            round(afterDiscount.cashAmount)
+          }}</span>
         </p>
       </div>
     </div>

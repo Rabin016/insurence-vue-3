@@ -66,6 +66,7 @@ emit("premiumEmit", premium.value);
         type="number"
         placeholder="e.g: 10 or 20"
       />
+      <p>Car CC</p>
       <BaseSelect v-model="selecetCC" :options="ccCar" />
       <BaseInput
         type="number"

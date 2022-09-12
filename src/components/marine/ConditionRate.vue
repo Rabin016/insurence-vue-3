@@ -48,9 +48,9 @@ watch(rateName, () => {
         placeholder="Select One"
       />
       <BaseInput
-        v-model="childRate"
+        v-model.number="childRate"
         type="text"
-        @input="emit('changerate', childRate)"
+        @input="emit('changerate', {rate: childRate})"
         placeholder="Premium Rate"
       />
     </div>

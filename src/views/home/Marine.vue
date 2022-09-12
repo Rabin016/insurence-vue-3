@@ -15,7 +15,7 @@ const limitAmount = ref("");
 const bankPercent = ref(10);
 const currencyRate = ref("");
 const rate = ref(null);
-const war = ref(true);
+const war = ref(false);
 const via = ref("ship");
 const premium = ref({
   net: 0,
@@ -26,8 +26,9 @@ const premium = ref({
 
 // All Functions
 const ratefn = (val) => {
+  console.log(val)
   rate.value = val.rate;
-  via.value = val.via;
+  val.via && (via.value = val.via)
 };
 
 const vatBalance = (total) => total * (15 / 100);

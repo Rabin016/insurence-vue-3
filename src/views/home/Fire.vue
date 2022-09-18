@@ -31,18 +31,13 @@ const calculate = () => {
     let structurePrice = structure.itemAmount;
     if (structure.itemAmount <= 100 && structure.itemAmount != 0) {
       structurePrice = rateCalculate(amount, structure.itemAmount);
-      console.log("1 in: " + structurePrice);
     } else if (structure.itemAmount >= 100 && bankPercent.value != 0 && structure.itemAmount != 0) {
       structurePrice = structure.itemAmount
       remainingAmount = amount - structure.itemAmount
-      console.log("2 in:" + remainingAmount)
     } else if (structure.itemAmount == "0") {
       structurePrice = remainingAmount
-      console.log("3 in: " + structurePrice);
-      console.log(rateCalculate(structurePrice, structure.rate));
     }
     netPremium = netPremium + rateCalculate(structurePrice, structure.rate);
-    console.log(netPremium)
   });
   rsd.value && (netPremium = netPremium + rateCalculate(amount, 0.13));
   const vat = rateCalculate(netPremium, 15);

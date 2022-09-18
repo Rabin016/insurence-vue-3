@@ -33,29 +33,16 @@ const premiumEmitInfo = (data) => (premium.value = data);
 <template>
   <div class="bg-gray-100 md:max-w-3xl mx-auto rounded-lg p-2 flex flex-col">
     <div v-for="policyIcon in policyIcons" :key="policyIcon.slug">
-      <h3
-        class="flex items-center justify-center text-xl"
-        :class="policyIcon.textColor"
-        v-if="$route.name == policyIcon.slug"
-      >
-        <Icons
-          class="w-6 h-6 mr-1 stroke-2 stoke fill-blue-600"
-          :class="policyIcon.iconColor"
-          :name="policyIcon.slug"
-        />{{ policyIcon.name }}
+      <h3 class="flex items-center justify-center text-xl" :class="policyIcon.textColor"
+        v-if="$route.name == policyIcon.slug">
+        <Icons class="w-6 h-6 mr-1 stroke-2 stoke fill-blue-600" :class="policyIcon.iconColor"
+          :name="policyIcon.slug" />{{ policyIcon.name }}
       </h3>
-      <div
-        v-if="$route.name == policyIcon.slug"
-        :class="policyIcon.color"
-        class="p-1 rounded-lg mx-auto w-6"
-      ></div>
+      <div v-if="$route.name == policyIcon.slug" :class="policyIcon.color" class="p-1 rounded-lg mx-auto w-6"></div>
     </div>
     <RouterView @premiumEmit="premiumEmitInfo" />
   </div>
 
-  <PremiumStatus
-    class="bg-gray-100 md:max-w-3xl mx-auto rounded-lg p-2 flex flex-col"
-    v-if="premium.net"
-    :premiumBill="premium"
-  />
+  <PremiumStatus class="bg-gray-100 md:max-w-3xl mx-auto rounded-lg p-2 flex flex-col" v-if="premium.net"
+    :premiumBill="premium" />
 </template>

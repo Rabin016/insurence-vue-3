@@ -25,7 +25,11 @@ const { premiumBill } = defineProps({
   },
 });
 
-const round = (data) => Math.round(data);
+const formatNumber = (val) => {
+  const round = Math.round(val)
+  const numberWithCommas = round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return numberWithCommas
+}
 
 const discount = ref(40);
 const afterDiscount = ref({
@@ -49,16 +53,16 @@ const calculate = () => {
     </div>
     <div>
       <p>
-        Net: <span class="text-red-600">{{ round(premiumBill.net) }}</span>
+        Net: <span class="text-red-600">{{ formatNumber(premiumBill.net) }}</span>
       </p>
       <p>
-        Vat: <span class="text-red-600">{{ round(premiumBill.vat) }}</span>
+        Vat: <span class="text-red-600">{{ formatNumber(premiumBill.vat) }}</span>
       </p>
       <p v-if="premiumBill.stamp">
-        Stamp: <span class="text-red-600">{{ round(premiumBill.stamp) }}</span>
+        Stamp: <span class="text-red-600">{{ formatNumber(premiumBill.stamp) }}</span>
       </p>
       <p>
-        Total: <span class="text-red-600">{{ round(premiumBill.total) }}</span>
+        Total: <span class="text-red-600">{{ formatNumber(premiumBill.total) }}</span>
       </p>
     </div>
     <!-- Discount -->
@@ -69,13 +73,13 @@ const calculate = () => {
         <p v-if="afterDiscount.commission">
           Discount Amount
           <span class="text-red-600">{{
-            round(afterDiscount.commission)
+          formatNumber(afterDiscount.commission)
           }}</span>
         </p>
         <p v-if="afterDiscount.cashAmount">
           Cash Payment
           <span class="text-red-600">{{
-            round(afterDiscount.cashAmount)
+          formatNumber(afterDiscount.cashAmount)
           }}</span>
         </p>
       </div>

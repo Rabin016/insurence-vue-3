@@ -26,7 +26,6 @@ const premium = ref({
 
 // All Functions
 const ratefn = (val) => {
-  console.log(val)
   rate.value = val.rate;
   val.via && (via.value = val.via)
 };
@@ -67,19 +66,9 @@ emit("premiumEmit", premium.value);
 <template>
   <div class="p-2">
     <form class="font-bold" @submit.prevent="submitInfo">
-      <BaseInput
-        placeholder="e.g: 230008"
-        v-model="limitAmount"
-        label="Limit Amount"
-        type="number"
-      />
+      <BaseInput placeholder="e.g: 230008" v-model="limitAmount" label="Limit Amount" type="number" />
       <BaseInput v-model="bankPercent" label="Bank Percent" type="number" />
-      <BaseInput
-        v-model="currencyRate"
-        label="Currency Rate"
-        placeholder="e.g: 86.7"
-        type="text"
-      />
+      <BaseInput v-model="currencyRate" label="Currency Rate" placeholder="e.g: 86.7" type="text" />
 
       <div>
         <!-- Condition -->

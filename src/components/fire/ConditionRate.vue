@@ -21,7 +21,6 @@ const emit = defineEmits(["changeConditionData"]);
 watch(conditionData, () => emit("changeConditionData", conditionData));
 
 const changeRate = (data) => {
-  console.log(data);
   [...class1, ...class2, ...class3].forEach((r) => {
     if (r.slug == data.selectedStructure) {
       conditionData.forEach((b) => {
@@ -48,7 +47,8 @@ const addNewEntries = () => {
       <h3 class="mr-2">Add Occupation of premises:</h3>
       <Button @click="addNewEntries">add</Button>
     </div>
-    <div v-for="(data, index) in conditionData" :key="index">
+    <div v-for="(data, index) in conditionData" :key="index" class="shadow-lg my-2 p-2 rounded-lg bg-gray-50 border-2">
+      <h2 class="text-red-500 font-bold"># {{data.selectedStructure ? data.selectedStructure : (index + 1) }}</h2>
       <div>
         <h3>Constructure Class</h3>
         <BaseSelect v-model="data.selectedClass" :options="classes" />
@@ -56,26 +56,18 @@ const addNewEntries = () => {
 
       <div>
         <h3>Constructure Name</h3>
-        <BaseSelect
-          v-model="data.selectedStructure"
-          :options="
-            data.selectedClass == 'class1'
-              ? class1
-              : data.selectedClass == 'class2'
-              ? class2
-              : class3
-          "
-          @change="changeRate(data)"
-        />
+        <BaseSelect v-model="data.selectedStructure" :options="
+          data.selectedClass == 'class1'
+            ? class1
+            : data.selectedClass == 'class2'
+            ? class2
+            : class3
+        " @change="changeRate(data)" />
       </div>
 
       <div>
         <BaseInput label="Rate" v-model="data.rate" />
-        <BaseInput
-          label="Item Amount"
-          v-model="data.itemAmount"
-          type="number"
-        />
+        <BaseInput label="Item Amount" v-model="data.itemAmount" type="number" />
       </div>
     </div>
   </div>

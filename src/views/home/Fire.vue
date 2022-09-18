@@ -26,14 +26,23 @@ const calculate = () => {
     Number(bankPercent.value)
   );
   let netPremium = 0;
+  let remainingAmount = amount
   allConditions.value.forEach((structure) => {
     let structurePrice = structure.itemAmount;
-    if (structure.itemAmount <= 100) {
+    if (structure.itemAmount <= 100 && structure.itemAmount != 0) {
       structurePrice = rateCalculate(amount, structure.itemAmount);
-    } else if (structure.itemAmount >= 100 && bankPercent.value !== 0) {
-      structurePrice = bankCalculate(structure.itemAmount, bankPercent.value);
+      console.log("1 in: " + structurePrice);
+    } else if (structure.itemAmount >= 100 && bankPercent.value != 0 && structure.itemAmount != 0) {
+      structurePrice = structure.itemAmount
+      remainingAmount = amount - structure.itemAmount
+      console.log("2 in:" + remainingAmount)
+    } else if (structure.itemAmount == "0") {
+      structurePrice = remainingAmount
+      console.log("3 in: " + structurePrice);
+      console.log(rateCalculate(structurePrice, structure.rate));
     }
     netPremium = netPremium + rateCalculate(structurePrice, structure.rate);
+    console.log(netPremium)
   });
   rsd.value && (netPremium = netPremium + rateCalculate(amount, 0.13));
   const vat = rateCalculate(netPremium, 15);
@@ -50,18 +59,8 @@ emit("premiumEmit", premium.value);
 <template>
   <div class="p-2">
     <form @submit.prevent="calculate">
-      <BaseInput
-        v-model.number="limitAmount"
-        label="Limit Amount"
-        type="number"
-        placeholder="e.g: 2000000"
-      />
-      <BaseInput
-        v-model.number="bankPercent"
-        label="Bank Percent"
-        type="number"
-        placeholder="e.g: 10 or 20"
-      />
+      <BaseInput v-model.number="limitAmount" label="Limit Amount" type="number" placeholder="e.g: 2000000" />
+      <BaseInput v-model.number="bankPercent" label="Bank Percent" type="number" placeholder="e.g: 10 or 20" />
       <ConditionRate @changeConditionData="cngConditionData" />
 
       <div>

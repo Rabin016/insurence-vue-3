@@ -11,7 +11,9 @@ const class1 = [
     {slug: 'homeclass1', name: 'Home', rate: 0.06},
     {slug: 'factoryclass1', name: 'Factory', rate: 0.25},
     {slug: 'prientclass1', name: 'Printing Press (without Ink)', rate: 0.17},
-    {slug: 'prientinkclass1', name: 'Printing Press (With Ink)', rate: 0.21}
+    {slug: 'prientinkclass1', name: 'Printing Press (With Ink)', rate: 0.21},
+{slug: 'mofshopclass1', name: 'Shop (Moffossol)', rate: '0.18'},
+{slug: 'mofgodownclass1', name: 'Godown (Moffossol)', rate: 0.13}
 ]
 
 const class2 = [
@@ -20,12 +22,16 @@ const class2 = [
     {slug: 'homeclass2', name: 'Home', rate: 0.09},
     {slug: 'officeclass2', name: 'Office', rate: 0.13},
     {slug: 'prientclass2', name: 'Printing Press (without Ink)', rate: 0.27},
-    {slug: 'prientinkclass2', name: 'Printing Press (With Ink)', rate: 0.31}
+    {slug: 'prientinkclass2', name: 'Printing Press (With Ink)', rate: 0.31},
+{slug: 'mofshopclass2', name: 'Shop (Moffossol)', rate: '0.26'},
+{slug: 'mofgodownclass2', name: 'Godown (Moffossol)', rate: 0.21}
 ]
 
 const class3 = [
     {slug: 'shopclass3', name: 'Shop', rate: 0.26},
-    {slug: 'godownclass3', name: 'Godown', rate: 0.21}
+    {slug: 'godownclass3', name: 'Godown', rate: 0.21},
+{slug: 'mofshopclass3', name: 'Shop (Moffossol)', rate: '0.43'},
+{slug: 'mofgodownclass3', name: 'Godown (Moffossol)', rate: 0.30}
 ]
 
 export {class1, class2, class3, classes}
